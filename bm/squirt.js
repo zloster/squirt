@@ -30,6 +30,10 @@ sq.host =  window.location.search.match('sq-dev') ?
 
       // text source: selection
       var selection = window.getSelection();
+      var selectionText = selection.toString();
+      if(selectionText) {
+        return read(selectionText);
+      }
       if(selection.type == 'Range') {
         var container = document.createElement("div");
         for (var i = 0, len = selection.rangeCount; i < len; ++i) {
